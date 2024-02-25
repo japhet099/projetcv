@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="projet.css">
+    <script src="projet.js"></script>
+</head>
+<body>
+    <form>
+        <div class="box">
+            <h1>Bienvenue</h1>
+            
+            <input type="email" id="email" name="email" placeholder="Adresse e-mail" onFocus="field_focus(this, 'email');" class="email" /> 
+            <input type="password" id="password" name="password" placeholder="Mot de passe" onFocus="field_focus(this, 'password');" class="email" />
+            
+        </div> 
+        <br> <br>
+        <input type="submit" value="Se connecter">
+        
+    </form> 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form'); 
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+
+               
+                const storedEmail = localStorage.getItem('userEmail');
+                const storedPassword = localStorage.getItem('userPassword');
+
+                if (email === storedEmail && password === storedPassword) {
+                 
+                    window.location.href = 'http://127.0.0.1:5500/cv2.html';
+                } else {
+                   
+                    alert('Identifiants incorrects. Veuillez réessayer.');
+                }
+
+               
+                localStorage.setItem('userEmail', email);
+                localStorage.setItem('userPassword', password);
+
+                function isValidEmail(email) {
+                
+                    return true;
+                }
+
+                if (isValidEmail(email)) {
+                    localStorage.setItem('userEmail', email);
+                } else {
+                    alert('Veuillez saisir une adresse e-mail valide.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

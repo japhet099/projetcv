@@ -1,0 +1,7 @@
+/* Nous devons laisser la media query ici car l'éditeur en ligne ne peut pas savoir la taille
+de la fenêtre avant l'import. Mais cela fonctionnerait parfaitement sur VS Code. */
+@media (max-width: 500px) {
+  body {
+    background: green;
+  }
+}

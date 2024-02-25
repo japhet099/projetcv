@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de création de CV</title>
+    <link rel="stylesheet" href="cv2.css">
+    <script>
+        function generateCV(event) {
+            event.preventDefault(); 
+
+            const nom = document.getElementById('nom').value;
+            const prenom = document.getElementById('prenom').value;
+            const email = document.getElementById('email').value;
+            const telephone = document.getElementById('telephone').value;
+            const adresse = document.getElementById('adresse').value;
+            const centresInteret = document.getElementsByName('centres_interet')[0].value;
+            const formations = document.getElementsByName('formations')[0].value;
+            const competences = document.getElementsByName('competences')[0].value;
+            const experiencesProfessionnelles = document.getElementsByName('experiences_professionnelles')[0].value;
+            const francais = document.getElementById('francais').value;
+            const anglais = document.getElementById('anglais').value;
+
+            const cvUrl = `cv1.html?nom=${encodeURIComponent(nom)}&prenom=${encodeURIComponent(prenom)}&email=${encodeURIComponent(email)}&telephone=${encodeURIComponent(telephone)}&adresse=${encodeURIComponent(adresse)}&centresInteret=${encodeURIComponent(centresInteret)}&formations=${encodeURIComponent(formations)}&competences=${encodeURIComponent(competences)}&experiencesProfessionnelles=${encodeURIComponent(experiencesProfessionnelles)}&francais=${encodeURIComponent(francais)}&anglais=${encodeURIComponent(anglais)}`;
+
+            window.location.href = cvUrl;
+        }
+    </script>
+</head>
+<body>
+    <div class="entete">
+        <h1>Formulaire de création de CV</h1>
+        <p>Remplissez les champs suivants pour générer votre CV.</p>
+    </div>
+    <form id="formulaire-cv" onsubmit="generateCV(event)">
+        <div class="bloc-ligne">
+            <label for="photo" style="display: inline-block;">Photo :</label>
+            <input type="file" id="photo" name="photo" class="champ-fichier"><br>
+            <label for="nom" style="display: inline-block;">Nom:</label>
+            <input type="text" id="nom" name="nom" class="champ-texte"><br>
+            <label for="prenom" style="display: inline-block;">Prénom:</label>
+            <input type="text" id="prenom" name="prenom" class="champ-texte"><br>
+            <label for="email" style="display: inline-block;">Email:</label>
+            <input type="email" id="email" name="email" class="champ-texte" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}" required><br>
+            <label for="telephone" style="display: inline-block;">Téléphone:</label>
+            <input type="tel" id="telephone" name="telephone" class="champ-texte" pattern="^\d{10}" required><br>
+            <label for="adresse" style="display: inline-block;">Adresse:</label>
+            <input type="text" id="adresse" name="adresse" class="champ-texte"><br>
+            <h3>Centres d'intérêt:</h3>
+            <textarea name="centres_interet" class="champ-texte"></textarea>
+        </div>
+        <div class="bloc-formations">
+            <h3>Formations</h3>
+            <textarea name="formations" rows="4" cols="50">*Exemple :* 2020-2022 : Master en Informatique, Université X</textarea>
+        </div>
+        <div class="bloc-competences">
+            <h3>Compétences</h3>
+            <textarea name="competences" rows="4" cols="50" placeholder="Ajouter des compétences...">*Exemple :* Programmation Python, Langage C++, Algorithmique</textarea>
+        </div>
+        <div class="bloc-experiences-professionnelles">
+            <h3>Expériences professionnelles</h3>
+            <textarea name="experiences_professionnelles" rows="4" cols="50">*Exemple :* 2022-Present : Ingénieur Développeur, Société Y</textarea>
+        </div>
+        <div>
+            <label for="francais">Français / French:</label>
+            <input type="text" id="francais" placeholder="Niveau de communication en français">
+            <label for="anglais">Anglais / English:</label>
+            <input type="text" id="anglais" placeholder="Niveau de communication en anglais">
+            <br><br>
+            <button type="submit">Générer</button>
+        </div>
+    </form>
+</body>
+</html>

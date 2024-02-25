@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    color: #12e807;
+    border: 2px solid black;
+    background: #000000;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 10px;
+    margin: 0;
+}
+
+header {
+    padding: 10px;
+    background-color: #000000;
+}
+
+h1 {
+    color: #000000;
+    margin-top: 0;
+}
+
+.cv-wrapper { /* Styles pour la div parente */
+    max-width: 800px;
+    margin: 0 auto; /* Pour centrer le contenu */
+    padding: 20px;
+}
+
+.cv-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espacement entre les sections */
+}
+
+.cv-sidebar {
+    width: 100%;
+    padding: 20px;
+    background-color: #35ce1d;
+}
+
+.cv-sidebar li {
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+.cv-main {
+    width: 100%;
+    padding: 20px;
+}
+
+.cv-main h2 {
+    color: hsl(117, 74%, 51%);
+    margin-top: 0;
+}
+
+section {
+    margin-bottom: 10px;
+}
+
+img {
+    border: 2px solid black;
+    padding: 10px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    text-align: left;
+}
+
+/* Media queries pour la mise en page responsive */
+
+@media screen and (max-width: 768px) {
+    .cv-container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .cv-sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .cv-main {
+        width: 100%;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+
